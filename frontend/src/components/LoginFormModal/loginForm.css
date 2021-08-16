@@ -1,0 +1,55 @@
+.login-form-div > * {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+  padding: 10px;
+  height: max-content;
+  width: max-content;
+}
+.login-form-div {
+  height: 100%;
+  border: #ffc000 4px solid;
+}
+.modal-login-container {
+  display: flex;
+  min-height: fit-content;
+  background: #ffc000;
+}
+
+.signup-form-div > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  margin: 5px;
+  height: max-content;
+  width: max-content;
+  border-left: #fff 4px solid;
+}
+
+.signup-form-div > form > label > input {
+  width: 100%;
+}
+.login-form-div > form > label > input {
+  width: 100%;
+}
+.modal-divider {
+  background-color: transparent;
+  color: transparent;
+}
+.signup-form-div > form > button {
+  background-color: #fff;
+  border: #fff 4px solid;
+  width: fit-content;
+  display: flex;
+}
+.login-errors {
+  color: red;
+}
+.login-form-div > form > button {
+  background-color: #fff;
+  border: #fff 4px solid;
+  width: fit-content;
+  display: flex;
+}

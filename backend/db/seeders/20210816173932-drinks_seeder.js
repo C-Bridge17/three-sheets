@@ -2,16 +2,6 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
     return queryInterface.bulkInsert('Drinks', [
       { tagId: 4, storeId: 1, name: 'Tribute', imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-563707_ea186_sm.jpeg', description: 'Our Tribute Double IPA is a celebration of hops, pure and simple. A simple and smooth malt base serves as the stage for the hops to perform. Tribute has a beautiful golden color, an aroma brimming with citrusy hops, and a deliciously smooth hop flavor and dry finish.', createdAt: new Date(), updatedAt: new Date() },
       { tagId: 3, storeId: 1, name: 'Maple Breakfast Stout', imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-426336_de97d_sm.jpeg', description: 'Brewed with maple syrup and cold brew coffee, this wonderfully complex stout starts with a rich smooth coffee flavor, then eludes to a dark chocolate character, and finishes a hit of sweetness.', createdAt: new Date(), updatedAt: new Date() },
@@ -22,23 +12,58 @@ module.exports = {
       { tagId: 6, storeId: 1, name: 'Raspberry Vermont Weiss', imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-2637937_d6d2d_sm.jpeg', description: 'Raspberry Vermonter Weiss is a beautiful deep pink Sour Ale brewed with Vermont Ingredients & raspberries.', createdAt: new Date(), updatedAt: new Date() },
       { tagId: 4, storeId: 1, name: 'Make the Cut: Our Saving Grace', imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-2585653_52495_sm.jpeg', description: 'Winner of the 2018 Make the Cut Homebrew Challenge. Bryan Landerman & Greg Goyette’s New England IPA is a hazy, straw colored creation dry hopped with Mosaic, Citra, and Ekuanot. Their beer delivers a mouthful of tropical juicy hops and a soft lasting citrus flavor that leaves you wanting more.', createdAt: new Date(), updatedAt: new Date() },
       { tagId: 4, storeId: 2, name: "It's Complicated Being A Wizard", imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-860861_3dca8_sm.jpeg', description: "It's Complicated Being a Wizard is our flagship Double IPA. Pours a radiant glowing orange with which we immerse massive quantities of hops for a bold hop flavor. Brewed with Barley, Wheat Malt, and Flaked Oats. Hopped with Simcoe, Idaho 7, and Chinook for flavors and aromas of Ripe Papaya, Nectarines, Orange Zest, and Dank Cannabis.", createdAt: new Date(), updatedAt: new Date() },
-      { tagId: , storeId: , name: , imageUrl: , description: , createdAt: new Date(), updatedAt: new Date() },
-      { tagId: , storeId: , name: , imageUrl: , description: , createdAt: new Date(), updatedAt: new Date() },
-      { tagId: , storeId: , name: , imageUrl: , description: , createdAt: new Date(), updatedAt: new Date() },
-
-
-
+      { tagId: 7, storeId: 2, name: 'Elaborate Member', imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-1791520_ab784_sm.jpeg", description: 'Elaborate Metaphor is a New England style Pale Ale brewed with Citra and Amarillo hops. Brewed with Barley, Flaked Oats, Wheat, and Raw Wheat. Flavors and aromas of Fresh Citrus Zest, Passion Fruit, Honeydew Melon, and Floral Wildflowers.', createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 2, name: "Uncanny Valley", imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-1712766_b340c_sm.jpeg', description: "Uncanny Valley is a New England style IPA hopped with Mosaic and Citra hops. Flavors and aromas of Ripe Mango, Pine Needles, Tangerine Zest, Watermelon, and Stone Fruit. The hop flavors wash over a balanced malt bill of Barley, Flaked Oats, Wheat Malt, Vienna Malt, and Raw Wheat to hold up the bold hops", createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 2, name: "Orbital Elevator", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-1712765_ef61f_sm.jpeg", description: "Orbital Elevator is a New England style Double IPA brewed with Barley, Oat Malt, Flaked Oats, and Vienna Malt. More than 20% of the grist bill is Oats creating a full body, fluffy mouth-feel. Hopped with Mosaic, Amarillo, and Simcoe for a tropical, fruity pebble paradise of hop flavors. Rounded out with flavors and aromas of Mandarin Orange Zest, Bubblegum, Boysenberry Sorbet, Key Limes, and Ripe Peaches.", createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 2, name: "Creatures of Magic", imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-2679539_918ac_sm.jpeg', description: "Creatures of Magic is a New England style IPA brewed with Mosaic, Simcoe, and Ekuanot to provide flavors and aromas of Melon, Blueberry, Citrus Zest, and Pine Needles. With more than 20% of the grist bill comprised of Oat Malt and Flaked Oats for an extra creamy body.", createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 2, name: "Peasant King", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-1622046_e1777_sm.jpeg", description: "Peasant King is an Imperial IPA brewed with Idaho 7 and Simcoe. The blend of hops provide a range of flavors and aromas; papaya, clementine, and honeydew melon. The hops sit atop a royal grain bill of Weyermann Pilsner and Vienna malts for a complex assortment of lightly toasted flavors.", createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 2, name: 'Stainless Forest', imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-1712755_0de69_sm.jpeg', description: 'Stainless Forest is a Double IPA hopped with Amarillo and Simcoe. Enormous hop flavors and aromas of tangerine, dank weed, and tropical juice. Stainless Forest is named after the tanks used to make beer. Many times the tanks begin to feel like tall trees in the brewery, a vast stainless steel forest of fermentors.', createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 2, name: "Beekeeper", imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-1551581_4d529_sm.jpeg', description: "Beekeeper is a New England style Honey Double IPA brewed with an absolutely absurb quantity of Vermont Honey. Heavily hopped with Simcoe, Cascade, and Amarillo to provide flavors and aromas of Dank Weed, Ripe Peaches, and a bouquet of Fresh cut Flowers.", createdAt: new Date(), updatedAt: new Date() },
+      {
+        tagId: 4, storeId: 2, name: "Intangible Tides", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-2390673_681e7_sm.jpeg", description: "Triple Dry Hopped Triple IPA. Hopped with Citra, Mosaic and Amarillo.", createdAt: new Date(), updatedAt: new Date()
+      },
+      { tagId: 4, storeId: 3, name: 'Fiddlehead IPA', imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-96969_d0928_sm.jpeg', description: 'Our flagship IPA, A hop forward American IPA with mellow bitterness. Citrusy and Dank. Well Balanced.', createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 3, name: 'Second Fiddle', imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-408264_83584_sm.jpeg', description: 'Extensively dry-hopped double IPA. Second Fiddle is second in name only. It’s big, juicy and aromatic. Citrus, Tropical, Pine', createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 3, name: 'Mastermind', imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-448044_e43c2_sm.jpeg', description: "American Double IPA with tropical fruit notes. Straw colored with a hazy glow. Pineapple and Cantaloupe are dominant characteristics. This beer finishes with a slight tartness. Every year we change the can design to signify a new fundraising year. 25% of all sales of Mastermind are donated to the University of Vermont Children's Hospital!", createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 11, storeId: 3, name: "Hodad", imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-331485_ca84b_sm.jpeg', description: 'Porter brewed with house toasted coconut flakes, cacao nibs, vanilla bean and lactose.', createdAt: new Date(), updatedAt: new Date() },
+      {
+        tagId: 7, storeId: 3, name: "Rarefied", imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-1047558_36533_sm.jpeg', description: 'Refreshing, Lightly Tart and Hazy Hoppy Pale Ale with Bright Citrus Notes and an Herbal Bitterness.', createdAt: new Date(), updatedAt: new Date()
+      },
+      { tagId: 4, storeId: 4, name: "Built To Spill", imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-1529330_536fc_sm.jpeg', description: 'tasting notes: citrus, pineapple, and tangerine', createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 4, name: "Pavement", imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-1633914_e29d5_sm.jpeg', description: "tasting notes: mango, passion fruit, citrus", createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 4, name: "Experimental Jet Set", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-2113626_49f6c_sm.jpeg", description: 'tasting notes: tropical fruit, soft resin, nutty', createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 4, name: '...Like Clockwork', imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-2046585_4890d_sm.jpeg', description: 'tasting notes: ripe orange, resinous, pineapple, soft pine', createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 4, name: 'The Shining', imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-2245205_ea1fd_sm.jpeg', description: 'tasting notes: pineapple, mango, smoothie', createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 4, name: "The Fruit That Ate Itself", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-1913708_360ed_sm.jpeg", description: "tasting notes: mango, orange, creamsicle", createdAt: new Date(), updatedAt: new Date() },
+      {
+        tagId: 4, storeId: 4, name: "Youth Lagoon", imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-2346294_9bc79_sm.jpeg', description: 'tasting notes: citrus, passion fruit, lychee', createdAt: new Date(), updatedAt: new Date()
+      },
+      { tagId: 4, storeId: 4, name: "Caribou", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-2542098_3cc0c_sm.jpeg", description: "tasting notes: papaya, dank, clementine, mango", createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 5, name: "Lush", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-1347706_93c5f_sm.jpeg", description: "A double IPA with luxuriant aromatics and succulent flavors. The combination of hops from both hemispheres and our ale yeast join forces to create rich, juicy character.", createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 5, name: "Plush", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-1665166_488f6_sm.jpeg", description: "Plush lays a soft mouthfeel and dank juiciness on your palate. Featuring a diverse grain bill and Simcoe-forward dry hopping with a glamorous supporting cast.", createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 5, name: "Double Shush", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-2460803_da60c_sm.jpeg", description: "Rousing citrus and tropical flavors from intense dry hopping elevates Shush to new exotic heights of flavor.", createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 5, name: "Junior iPA", imageUrl: 'https://untappd.akamaized.net/site/beer_logos/beer-1543367_3794c_sm.jpeg', description: 'A little guy with showy aromatics and full flavor. Concentrated dry-hopping contributes to a refreshing, invigorating essence.', createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 5, name: "Research Series Double IPA", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-2298871_015ea_sm.jpeg", description: "Our Double IPA Research Series gives us the opportunity to make bold moves with hops involving varieties, dosage rates, and process, all in search of discovering new territories of aroma and flavor.", createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 7, storeId: 5, name: "Really Pale Ale", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-1115932_af966_sm.jpeg", description: "A hazy ale brewed with German and American malts. Its light body and bright, complex hop aromatics make it both refreshing and full of flavor.", createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 5, name: "Ponyboy", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-2282527_043d3_sm.jpeg", description: "The classic combination of Citra and Mosaic, Frost style. Stay gold, Ponyboy.", createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 5, name: "Shush", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-2272037_20094_sm.jpeg", description: "A lively, dynamic IPA with a tangy, juicy profile from a harmonious blend of modern and traditional hops.", createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 7, storeId: 6, name: "Edward", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-13050_fa9aa_sm.jpeg", description: "Edward (1917-2002) is our grandfather; Hill Farmstead Brewery rests upon the land that was once home to him and his five children. In his honor, this American Pale Ale is dutifully crafted from American malted barley, a plethora of American hops, our ale yeast and water from Edward’s well. It is unfiltered and dry hopped. Aromatic and flowery, with impressions of citrus and pine, this is the ale that I dream to have shared with Edward. Pale and Caramel malt; Centennial, Chinook, Columbus, Simcoe, and Warrior hops; House Ale Yeast, and our Well Water.", createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 2, storeId: 6, name: "Arthur", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-13488_f0f9c_sm.jpeg", description: "Arthur (1922-2005) was our grandfather’s youngest brother; Hill Farmstead Brewery rests upon the land that was once home to him and his 13 siblings. In his honor, this Saison is crafted from American malted barley, American and European hops, our distinctive farmhouse yeast and water from our well. Unfiltered and naturally carbonated, this is the ale that I dream to have shared with Arthur.", createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 6, name: "Susan", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-262980_cc2c8_sm.jpeg", description: "Susan was our grandfather's sister - in her honor we offer this version of an American IPA.", createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 2, storeId: 6, name: "Anna", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-21548_d92a9_sm.jpeg", description: "Anna (1902-1993) was our grandfather’s sister; Hill Farmstead Brewery rest upon the land that was once home to her and her 13 siblings. In her honor, this honey Farmstead® ale is crafted from American malted barley, European and American hops, Vermont wildflower honey, our distinctive farmhouse yeast and water from our well. Unfiltered and naturally carbonated, this is the ale that I dream to have shared with Anna.", createdAt: new Date(), updatedAt: new Date() },
+      { tagId: 4, storeId: 6, name: "Abner", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-25843_28729_sm.jpeg", description: "Abner (1867-1953) is our great grandfather; Hill Farmstead Brewery rests upon the land that was once home to him and his fourteen children. In his honor, this imperial pale ale is dutifully crafted from American malted barley, a plethora of American hops, our ale yeast and water from Abner’s well. It is unfiltered and double dry hopped. Aromatic and flowery, bursting with notes of citrus and pine, this is the ale that I dream to have shared with Abner.", createdAt: new Date(), updatedAt: new Date() },
+      {
+        tagId: 11, storeId: 6, name: "Everett", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-31977_5626d_sm.jpeg", description: `Everett (1908-1939) was Edward’s brother; Hill Farmstead Brewery rests upon the land that was once home to him and his 13 siblings. In his honor, this porter is crafted from American malted barley; English and German roasted malts; American hops; our
+      ale yeast; and water from our well. Unfiltered, and decadent in its depth, with a complex backbone of chocolate, coffee, and malty sweetness, this is befitting the memory of Everett.`, createdAt: new Date(), updatedAt: new Date()
+      },
+      {
+        tagId: 4, storeId: 6, name: "Society & Solitude #5", imageUrl: "https://untappd.akamaized.net/site/beer_logos/beer-231394_a20b3_sm.jpeg", description: "American and New Zealand hops. Think Grapefruit.", createdAt: new Date(), updatedAt: new Date()
+      }
     ], {});
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete('Drinks', null, {});
   }
 };
 

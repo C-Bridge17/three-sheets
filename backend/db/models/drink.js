@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT
   }, {});
   Drink.associate = function (models) {
-    Drink.belongsTo(models.Tags, { foreignKey: 'tagId' })
-    Drink.belongsTo(model.Store, { foreignKey: 'storeId' })
+    Drink.belongsTo(models.Tag, { foreignKey: 'tagId' })
+    Drink.belongsTo(models.Store, { foreignKey: 'storeId' })
     Drink.hasMany(models.Checkin, { foreignKey: 'drinkId' })
   };
   return Drink;

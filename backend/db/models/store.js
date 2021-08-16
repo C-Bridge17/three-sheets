@@ -1,11 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Store = sequelize.define('Store', {
-    ownerId: DataTypes.INTEGER,
+    location: DataTypes.STRING,
     title: DataTypes.STRING
   }, {});
   Store.associate = function (models) {
-    Store.belongsTo(models.User, { foreignKey: 'ownerId' })
     Store.hasMany(models.Drink, { foreignKey: 'storeId' })
   };
   return Store;

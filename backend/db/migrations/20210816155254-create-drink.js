@@ -8,10 +8,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      userId: {
-        allowNull: false,
+      tagId: {
         type: Sequelize.INTEGER,
-        references: { model: "Users" }
+        references: { model: "Tags" }
       },
       storeId: {
         allowNull: false,

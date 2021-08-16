@@ -6,10 +6,11 @@ const { restoreUser } = require('../../utils/auth.js');
 const { requireAuth } = require('../../utils/auth.js');
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
+const homeRouter = require('./home.js')
 
 router.use('/session', sessionRouter);
-
 router.use('/users', usersRouter);
+router.use('/home', homeRouter)
 
 router.get('/set-token-cookie', asyncHandler(async (req, res) => {
   const user = await User.findOne({
@@ -20,6 +21,7 @@ router.get('/set-token-cookie', asyncHandler(async (req, res) => {
   setTokenCookie(res, user);
   return res.json({ user });
 }));
+
 
 router.get(
   '/restore-user',

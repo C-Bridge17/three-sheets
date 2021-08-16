@@ -5,6 +5,7 @@
   height: 50px;
   align-items: center;
   border: #fff solid 8px;
+  border-radius: 2em;
 }
 
 .nav-bar > input {
@@ -22,7 +23,8 @@
 }
 .profile-dropdown {
   position: absolute;
-  background-color: #fff;
+  /* background-color: #ffc000; */
+  /* border: #fff solid 4px; */
   width: fit-content;
   right: 50%;
   top: 100%;
@@ -31,15 +33,27 @@
 .profile-dropdown > li {
   list-style: none;
   padding: 5px;
-  margin: 5px;
+  margin-bottom: 1px;
+  border: #fff 4px solid;
+  background: #fff;
+  width: 100%;
 }
+
 .profile-img {
   height: 50px;
   width: auto;
+  background: transparent;
 }
 .profile-button {
   background-color: transparent;
-  border: 1px #ffc000 solid;
+  border: transparent;
+}
+.profile-img:hover {
+  height: 55px;
+  width: auto;
+}
+.home-button:hover {
+  font-size: 30px;
 }
 .profile-button-container {
   position: relative;

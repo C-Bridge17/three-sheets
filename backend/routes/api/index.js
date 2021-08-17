@@ -31,6 +31,11 @@ router.get('/', asyncHandler(async (req, res) => {
   return res.json(checkin)
 }))
 
+router.get('/drinks', asyncHandler(async (req, res) => {
+  const drinks = await Drink.findAll()
+  return res.json(drinks)
+}))
+
 router.get(
   '/restore-user',
   restoreUser,

@@ -3,11 +3,15 @@ import { useDispatch } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import './Navigation.css';
+import { Modal } from '../../context/Modal';
+import CheckInForm from "../CheckinForm";
 
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
 
   const openMenu = () => {
     if (showMenu) return;
@@ -16,11 +20,11 @@ function ProfileButton({ user }) {
 
   useEffect(() => {
     if (!showMenu) return;
+    if (showModal) return;
 
     const closeMenu = () => {
       setShowMenu(false);
     };
-
     document.addEventListener('click', closeMenu);
 
     return () => document.removeEventListener("click", closeMenu);
@@ -30,6 +34,11 @@ function ProfileButton({ user }) {
     e.preventDefault();
     dispatch(sessionActions.logout());
   };
+  const handler = (e) => {
+    e.preventDefault()
+    setShowModal(true)
+    setShowMenu(true)
+  }
 
   return (
     <div className="profile-button-container">
@@ -39,6 +48,12 @@ function ProfileButton({ user }) {
       {showMenu && (
         <ul className="profile-dropdown">
           <li><NavLink to={`/users/${user.id}`}>My Tap Room</NavLink></li>
+          <li><button onClick={(e) => handler(e)}>Checkin</button></li>
+          {showModal && (
+            <Modal onClose={() => setShowModal(false)}>
+              <CheckInForm user={user} />
+            </Modal>
+          )}
           <li>{user.username}</li>
           <li>{user.email}</li>
           <li>

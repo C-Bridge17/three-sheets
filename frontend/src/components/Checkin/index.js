@@ -11,7 +11,6 @@ const Checkin = ({ isLoaded }) => {
   let a = 'a'
   const vowels = 'aeiou'
   const aOrAn = (el) => {
-    console.log(el[0])
     if (el[0].toLowerCase() === 'a' || el[0].toLowerCase() === 'e' || el[0].toLowerCase() === 'i' || el[0].toLowerCase() === 'u' || el[0].toLowerCase() === 'o') {
       a = 'an'
     } else {
@@ -24,7 +23,7 @@ const Checkin = ({ isLoaded }) => {
   }, [dispatch])
 
   return (
-    <container className='checkin-feed-container'>
+    <div className='checkin-feed-container'>
       {
         feed && feed.map((el) => (
           <div key={el.id} className="checkin-feed-div">
@@ -37,7 +36,7 @@ const Checkin = ({ isLoaded }) => {
           </div>
         ))
       }
-    </container >
+    </div >
   )
 }
 

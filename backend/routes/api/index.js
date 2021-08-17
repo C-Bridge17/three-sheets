@@ -24,6 +24,7 @@ router.get('/set-token-cookie', asyncHandler(async (req, res) => {
 
 router.get('/', asyncHandler(async (req, res) => {
   const checkin = await Checkin.findAll({
+    limit: 25,
     include: [{ all: true, nested: true }],
     order: [["createdAt"]]
   })

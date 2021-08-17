@@ -81,7 +81,6 @@ module.exports = (sequelize, DataTypes) => {
     return await User.scope('currentUser').findByPk(user.id);
   };
   User.associate = function (models) {
-    User.hasMany(models.Drink, { foreignKey: 'userId' })
     User.hasMany(models.Checkin, { foreignKey: 'userId' })
   };
   return User;

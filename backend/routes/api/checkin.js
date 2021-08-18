@@ -18,6 +18,11 @@ router.delete(`/:id(\\d+)`, asyncHandler(async (req, res) => {
   return res.json(deleted)
 }))
 
-
+router.put(`/:id(\\d+)`, asyncHandler(async (req, res) => {
+  const checkin = await Checkin.findByPk(req.params.id)
+  const update = await checkin.update(req.body)
+  const found = await Checkin.findByPk(checkin.id, { include: [{ all: true, nested: true }] })
+  return res.json(found)
+}))
 
 module.exports = router;

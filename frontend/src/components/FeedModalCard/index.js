@@ -5,6 +5,8 @@ import { Modal } from '../../context/Modal';
 import UpdateCheckin from "../UpdateCheckin";
 import { delCheckin } from "../../store/splash";
 
+
+
 const FeedModalCard = ({ el }) => {
   const dispatch = useDispatch()
   const [currentCheckin, setCurrentCheckin] = useState()
@@ -35,7 +37,6 @@ const FeedModalCard = ({ el }) => {
 
   const updateCheckin = (checkinId) => {
     setCurrentCheckin(checkinId)
-
     setShowModal(true)
   }
 

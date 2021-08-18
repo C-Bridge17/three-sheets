@@ -26,7 +26,7 @@ router.get('/', asyncHandler(async (req, res) => {
   const checkin = await Checkin.findAll({
     limit: 25,
     include: [{ all: true, nested: true }],
-    order: [["createdAt"]]
+    order: [["id", 'desc']]
   })
   return res.json(checkin)
 }))

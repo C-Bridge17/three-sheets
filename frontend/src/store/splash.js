@@ -16,10 +16,9 @@ const addCheckin = payload => ({
 export const postCheckin = (payload) => async dispatch => {
   const res = await csrfFetch('/api/checkin', {
     method: 'POST',
-    headers: { "content-type": "application/json" },
     body: JSON.stringify(payload)
   });
-  const list = await res.json(payload)
+  const list = await res.json()
   if (res.ok) {
     dispatch(addCheckin(list))
   }

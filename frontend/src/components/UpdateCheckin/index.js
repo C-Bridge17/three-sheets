@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
 import { drinkList } from "../../store/drinks";
 import { useDebounce } from "../../hooks/useDebounce";
-import { postCheckin } from "../../store/splash";
+import { putCheckin } from "../../store/splash";
 
-const CheckInForm = ({ user }) => {
+
+const UpdateCheckin = ({ checkinId, setShowModal }) => {
+  const checkin = useSelector(state => state.feed[checkinId])
   const dispatch = useDispatch()
   const [selectedDrink, setSelectedDrink] = useState('')
-  const [drinkId, setDrinkId] = useState(1)
-  const [userId, setUserId] = useState(user.id)
-  const [comment, setComment] = useState('')
-  const [search, setSearch] = useState('')
+  const [drinkId, setDrinkId] = useState(checkin.drinkId)
+  const [userId, setUserId] = useState(checkin.userId)
+  const [comment, setComment] = useState(checkin.comment)
+  const [search, setSearch] = useState(checkin.Drink.name)
   const [visibleDrinks, setVisibleDrinks] = useState([])
   const debouncedSearch = useDebounce(search, 250)
 
@@ -40,9 +41,10 @@ const CheckInForm = ({ user }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     if (drinkId) {
-      const payload = { drinkId, userId, comment }
-      dispatch(postCheckin(payload))
-      window.location.reload()
+      const payload = { id: checkinId, drinkId, userId, comment }
+      dispatch(putCheckin(payload))
+      setShowModal(false)
+      // window.location.reload()
     }
   }
 
@@ -57,7 +59,7 @@ const CheckInForm = ({ user }) => {
           </input>
         </label>
         <textarea
-          placeholder="Leave a review"
+          placeholder={checkin.comment}
           maxLength='255'
           onChange={(e) => setComment(e.target.value)}
         >
@@ -80,6 +82,8 @@ const CheckInForm = ({ user }) => {
           </li>)}
       </ul>
     </div >
+
   )
 }
-export default CheckInForm
+
+export default UpdateCheckin

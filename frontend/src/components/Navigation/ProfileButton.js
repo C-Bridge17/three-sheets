@@ -54,7 +54,7 @@ function ProfileButton({ user }) {
       {showMenu && (
         <ul className="profile-dropdown" ref={dropDownElement}>
           <li><NavLink to={`/users/${user.id}`}>My Tap Room</NavLink></li>
-          <li><button onClick={(e) => handler(e)}>Checkin</button></li>
+          <li><button onClick={(e) => handler(e)}>Check-In</button></li>
           <li>{user.username}</li>
           <li>{user.email}</li>
           <li>

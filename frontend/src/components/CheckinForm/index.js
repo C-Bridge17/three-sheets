@@ -41,9 +41,8 @@ const CheckInForm = ({ user }) => {
     e.preventDefault()
     if (drinkId) {
       const payload = { drinkId, userId, comment }
-      return dispatch(postCheckin(payload))
+      dispatch(postCheckin(payload))
     }
-
   }
 
   return (

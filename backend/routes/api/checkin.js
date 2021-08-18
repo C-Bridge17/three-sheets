@@ -4,6 +4,10 @@ const { Checkin, User, Drink } = require('../../db/models')
 
 const router = express.Router();
 
+router.post('/', asyncHandler(async (req, res) => {
+  await Checkin.create(req.body);
+  return res.redirect(`/`);
+}))
 
 
 

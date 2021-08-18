@@ -3,16 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { drinkList } from "../../store/drinks";
 import { useDebounce } from "../../hooks/useDebounce";
+import { postCheckin } from "../../store/splash";
 
 const CheckInForm = ({ user }) => {
   const dispatch = useDispatch()
-  const [drinkID, setDrinkId] = useState(1)
   const [selectedDrink, setSelectedDrink] = useState('')
+  const [drinkId, setDrinkId] = useState(1)
   const [userId, setUserId] = useState(user.id)
   const [comment, setComment] = useState('')
   const [search, setSearch] = useState('')
   const [visibleDrinks, setVisibleDrinks] = useState([])
   const debouncedSearch = useDebounce(search, 250)
+
 
   const drinks = useSelector(state => Object.values(state.drinks))
 
@@ -35,13 +37,18 @@ const CheckInForm = ({ user }) => {
 
 
 
-  const handleSubmit = () => {
-    return null
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (drinkId) {
+      const payload = { drinkId, userId, comment }
+      return dispatch(postCheckin(payload))
+    }
+
   }
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Drink
           <input
             value={search}
@@ -49,13 +56,13 @@ const CheckInForm = ({ user }) => {
           >
           </input>
         </label>
-        <label>
-          Comment
-          <textarea>
-
-          </textarea>
-        </label>
-        <button>Checkin</button>
+        <textarea
+          placeholder="Leave a review"
+          maxLength='255'
+          onChange={(e) => setComment(e.target.value)}
+        >
+        </textarea>
+        <button type='submit'>Confirm</button>
       </form >
       <ul>
         {visibleDrinks && selectedDrink !== search && visibleDrinks.map(el =>
@@ -65,7 +72,8 @@ const CheckInForm = ({ user }) => {
             value={el.name}
             onClick={() => (
               setSelectedDrink(el.name),
-              setSearch(el.name)
+              setSearch(el.name),
+              setDrinkId(el.id)
             )}
           >
               {el.name}</button>

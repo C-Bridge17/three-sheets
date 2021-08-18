@@ -6,11 +6,11 @@ const { requireAuth } = require('../../utils/auth.js');
 const { Checkin, User, Drink } = require('../../db/models')
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
-const homeRouter = require('./home.js')
+const checkinRouter = require('./checkin.js')
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
-router.use('/home', homeRouter)
+router.use('/checkin', checkinRouter)
 
 router.get('/set-token-cookie', asyncHandler(async (req, res) => {
   const user = await User.findOne({

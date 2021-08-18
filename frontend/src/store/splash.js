@@ -1,7 +1,8 @@
 import thunk from 'redux-thunk'
 import { csrfFetch } from './csrf';
 const LOAD = "splash/LOAD"
-const ADD_CHECKIN = "checking/ADD_CHECKIN"
+const ADD_CHECKIN = "checkin/ADD_CHECKIN"
+const DEL_CHECKIN = "chechin/DEL_CHECKIN"
 
 const loadFeed = feed => ({
   type: LOAD,
@@ -12,6 +13,22 @@ const addCheckin = payload => ({
   type: ADD_CHECKIN,
   payload
 })
+
+const deleteCheckin = (checkinId) => ({
+  type: DEL_CHECKIN,
+  checkinId
+})
+
+export const delCheckin = (checkinId) => async dispatch => {
+  const res = await csrfFetch(`/api/checkin/${checkinId}`, {
+    method: 'DELETE'
+  })
+  const deleted = await res.json()
+  if (res.ok) {
+    dispatch(deleteCheckin(deleted))
+  }
+  return deleted
+}
 
 export const postCheckin = (payload) => async dispatch => {
   const res = await csrfFetch('/api/checkin', {
@@ -54,7 +71,11 @@ const homePageReducer = (state = {}, action) => {
       }
       return newState
     }
-
+    case DEL_CHECKIN: {
+      const newState = { ...state };
+      delete newState[action.checkinId];
+      return newState;
+    }
     default:
       return state
   }

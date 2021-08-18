@@ -21,6 +21,22 @@ a {
 }
 .comment-container {
   height: fit-content;
-  width: fit-content;
+  width: 100%;
+  word-wrap: break-word;
+  text-align: center;
   box-shadow: lightgrey 4px 4px 4px;
+}
+.checkin-delete-button {
+  background-color: transparent;
+  border: transparent;
+}
+.checkin-delete-button:hover {
+  font-size: 12px;
+  cursor: pointer;
+}
+.checkin-delete-button-div {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  height: fit-content;
 }

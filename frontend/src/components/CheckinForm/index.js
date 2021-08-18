@@ -42,6 +42,7 @@ const CheckInForm = ({ user }) => {
     if (drinkId) {
       const payload = { drinkId, userId, comment }
       dispatch(postCheckin(payload))
+      window.location.reload()
     }
   }
 

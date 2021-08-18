@@ -1,6 +1,6 @@
 .update-checkin-modal {
   background-color: #ffc000;
-  height: 600px;
+  height: 640px;
   width: 510px;
   border: black solid 4px;
 }
@@ -19,6 +19,7 @@
   color: #8a4500;
   width: 95%;
   height: 100px;
+  resize: none;
 }
 .update-form-container {
   display: flex;

@@ -1,0 +1,49 @@
+.update-checkin-modal {
+  background-color: #ffc000;
+  height: 640px;
+  width: 510px;
+  border: black solid 4px;
+}
+.update-checkin-header {
+  text-align: center;
+  color: #8a4500;
+  height: 55px;
+  background-color: #fff;
+  position: relative;
+}
+.drink-input-update {
+  width: 50%;
+  color: #8a4500;
+}
+.comment-textarea-update {
+  color: #8a4500;
+  width: 95%;
+  height: 100px;
+  resize: none;
+}
+.update-form-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 15px;
+}
+.search-update-drinks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 88%;
+  border: black solid 1px;
+  height: 145px;
+  background-color: #fff;
+  overflow: scroll;
+}
+.search-update-drinks > * {
+  list-style: none;
+  padding: 4px;
+}
+.search-update-drinks > li > button {
+  background-color: lightgrey;
+  border: ;
+}
+.update-form {
+  width: 100%;
+}

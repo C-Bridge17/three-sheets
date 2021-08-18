@@ -4,10 +4,12 @@ import { Redirect, useHistory } from "react-router-dom";
 import { drinkList } from "../../store/drinks";
 import { useDebounce } from "../../hooks/useDebounce";
 import { postCheckin } from "../../store/splash";
+import './checkinForm.css'
 
 const CheckInForm = ({ user }) => {
   const dispatch = useDispatch()
   const [selectedDrink, setSelectedDrink] = useState('')
+  const [disable, setDisable] = useState(true)
   const [drinkId, setDrinkId] = useState(1)
   const [userId, setUserId] = useState(user.id)
   const [comment, setComment] = useState('')
@@ -47,38 +49,50 @@ const CheckInForm = ({ user }) => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>Drink
+    <div className='update-checkin-modal'>
+      <div className='update-checkin-header'>
+        <h2>Check-In</h2>
+      </div>
+      <div className='update-form-container'>
+        <form onSubmit={handleSubmit}>
+          <h3>Search drinks:</h3>
           <input
+            className="drink-input-update"
             value={search}
-            onChange={(e) => (setSearch(e.target.value))}
+            onChange={(e) => (setSearch(e.target.value), setDisable(true))}
           >
           </input>
-        </label>
-        <textarea
-          placeholder="Leave a review"
-          maxLength='255'
-          onChange={(e) => setComment(e.target.value)}
-        >
-        </textarea>
-        <button type='submit'>Confirm</button>
-      </form >
-      <ul>
-        {visibleDrinks && selectedDrink !== search && visibleDrinks.map(el =>
-          <li
-            key={el.id}
-          ><button
-            value={el.name}
-            onClick={() => (
-              setSelectedDrink(el.name),
-              setSearch(el.name),
-              setDrinkId(el.id)
-            )}
+          <h3>If your Drink is not in our database: </h3>
+          <button>Add Drink to our database</button>
+          <h3>Select an avaible drink: </h3>
+          <ul className='search-update-drinks'>
+            {visibleDrinks && selectedDrink !== search && visibleDrinks.map(el =>
+              <li
+                key={el.id}
+              ><button
+                value={el.name}
+                onClick={() => (
+                  setDisable(false),
+                  setSelectedDrink(el.name),
+                  setSearch(el.name),
+                  setDrinkId(el.id)
+                )}
+              >
+                  {el.name}</button>
+              </li>)}
+          </ul>
+          <h3>Comment:</h3>
+          <textarea
+            className="comment-textarea-update"
+            placeholder="Leave a review"
+            maxLength='255'
+            onChange={(e) => setComment(e.target.value)}
           >
-              {el.name}</button>
-          </li>)}
-      </ul>
+          </textarea>
+          <button type='submit' disabled={disable}>Confirm</button>
+        </form >
+      </div>
+
     </div >
   )
 }

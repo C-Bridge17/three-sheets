@@ -82,6 +82,7 @@ const UpdateCheckin = ({ checkinId, setShowModal }) => {
                   {el.name}</button>
               </li>)}
           </ul>
+          <h3>Comment:</h3>
           <textarea
             className="comment-textarea-update"
             placeholder='Tell us what you think'

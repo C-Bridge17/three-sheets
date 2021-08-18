@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { drinkList } from "../../store/drinks";
 import { useDebounce } from "../../hooks/useDebounce";
 import { putCheckin } from "../../store/splash";
+import './checkinModal.css'
 
 
 const UpdateCheckin = ({ checkinId, setShowModal }) => {
   const checkin = useSelector(state => state.feed[checkinId])
   const dispatch = useDispatch()
+  const [disable, setDisable] = useState(false)
   const [selectedDrink, setSelectedDrink] = useState('')
   const [drinkId, setDrinkId] = useState(checkin.drinkId)
   const [userId, setUserId] = useState(checkin.userId)
@@ -27,7 +29,7 @@ const UpdateCheckin = ({ checkinId, setShowModal }) => {
     const lowerCaseDrinkName = drinkName.toLowerCase()
     const drinkArray = drinks.filter(el => {
       return el.name.toLowerCase().includes(lowerCaseDrinkName)
-    }).slice(0, 5)
+    }).slice(0, 20)
     setVisibleDrinks(drinkArray)
   }
 
@@ -44,43 +46,55 @@ const UpdateCheckin = ({ checkinId, setShowModal }) => {
       const payload = { id: checkinId, drinkId, userId, comment }
       dispatch(putCheckin(payload))
       setShowModal(false)
-      // window.location.reload()
     }
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>Drink
+    <div className='update-checkin-modal'>
+      <div className='update-checkin-header'>
+        <h2>Update Check-In</h2>
+      </div>
+      <div className='update-form-container'>
+        <form onSubmit={handleSubmit} className='update-form'>
+          <h3>Search drinks:</h3>
           <input
+            className="drink-input-update"
             value={search}
-            onChange={(e) => (setSearch(e.target.value))}
+            onChange={(e) => (setSearch(e.target.value), setDisable(true))}
           >
           </input>
-        </label>
-        <textarea
-          placeholder={checkin.comment}
-          maxLength='255'
-          onChange={(e) => setComment(e.target.value)}
-        >
-        </textarea>
-        <button type='submit'>Confirm</button>
-      </form >
-      <ul>
-        {visibleDrinks && selectedDrink !== search && visibleDrinks.map(el =>
-          <li
-            key={el.id}
-          ><button
-            value={el.name}
-            onClick={() => (
-              setSelectedDrink(el.name),
-              setSearch(el.name),
-              setDrinkId(el.id)
-            )}
+          <h3>If your Drink is not in our database: </h3>
+          <button>Add Drink to our database</button>
+          <h3>Select an avaible drink: </h3>
+          <ul className='search-update-drinks'>
+            {visibleDrinks && selectedDrink !== search && visibleDrinks.map(el =>
+              <li
+                key={el.id}
+              ><button
+                value={el.name}
+                onClick={() => (
+                  setDisable(false),
+                  setSelectedDrink(el.name),
+                  setSearch(el.name),
+                  setDrinkId(el.id)
+                )}
+              >
+                  {el.name}</button>
+              </li>)}
+          </ul>
+          <textarea
+            className="comment-textarea-update"
+            placeholder='Tell us what you think'
+            maxLength='255'
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
           >
-              {el.name}</button>
-          </li>)}
-      </ul>
+          </textarea>
+
+          <button type='submit' disabled={disable}>Confirm</button>
+        </form >
+      </div>
+
     </div >
 
   )

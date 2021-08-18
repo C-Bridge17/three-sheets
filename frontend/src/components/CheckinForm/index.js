@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { drinkList } from "../../store/drinks";
 import { useDebounce } from "../../hooks/useDebounce";
 import { postCheckin } from "../../store/splash";
@@ -41,9 +41,8 @@ const CheckInForm = ({ user }) => {
     e.preventDefault()
     if (drinkId) {
       const payload = { drinkId, userId, comment }
-      return dispatch(postCheckin(payload))
+      dispatch(postCheckin(payload))
     }
-
   }
 
   return (

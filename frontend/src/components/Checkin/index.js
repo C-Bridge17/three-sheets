@@ -7,9 +7,8 @@ import './checkin.css'
 const Checkin = ({ isLoaded }) => {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);
-  const feed = useSelector(state => Object.values(state.feed))
+  const feed = useSelector(state => Object.values(state.feed).sort(state.feed.id).reverse())
   let a = 'a'
-  const vowels = 'aeiou'
   const aOrAn = (el) => {
     if (el[0].toLowerCase() === 'a' || el[0].toLowerCase() === 'e' || el[0].toLowerCase() === 'i' || el[0].toLowerCase() === 'u' || el[0].toLowerCase() === 'o') {
       a = 'an'

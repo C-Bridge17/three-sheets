@@ -1,5 +1,5 @@
 import thunk from 'redux-thunk'
-
+import { csrfFetch } from './csrf';
 const LOAD = "splash/LOAD"
 const ADD_CHECKIN = "checking/ADD_CHECKIN"
 
@@ -14,16 +14,15 @@ const addCheckin = payload => ({
 })
 
 export const postCheckin = (payload) => async dispatch => {
-  const res = await fetch('/api/checkin', {
+  const res = await csrfFetch('/api/checkin', {
     method: 'POST',
-    headers: { "content-type": "application/json" },
     body: JSON.stringify(payload)
   });
-  const list = await res.json(payload)
+  const list = await res.json()
   if (res.ok) {
     dispatch(addCheckin(list))
   }
-  return payload
+  return list
 }
 
 export const getHomepage = () => async dispatch => {
@@ -51,7 +50,7 @@ const homePageReducer = (state = {}, action) => {
     case ADD_CHECKIN: {
       const newState = {
         ...state,
-        ...action.payload
+        [action.payload.id]: action.payload
       }
       return newState
     }

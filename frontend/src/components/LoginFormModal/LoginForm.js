@@ -22,7 +22,7 @@ function LoginForm() {
   };
 
   return (
-    <container className='modal-login-container'>
+    <div className='modal-login-container'>
       <div className='login-form-div'>
         <form onSubmit={handleSubmit}>
           <ul className='login-errors'>
@@ -58,7 +58,7 @@ function LoginForm() {
       <div className='signup-form-div'>
         <SignupFormPage />
       </div>
-    </container >
+    </div >
   );
 }
 

@@ -1,0 +1,15 @@
+.sips-home-title {
+  text-align: center;
+}
+.recent-sip-div {
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  box-shadow: lightgrey 4px 4px 4px;
+  padding-left: 5px;
+}
+.recent-sip-div > a > h3 {
+  margin-left: 5px;
+}

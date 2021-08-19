@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const { setTokenCookie } = require('../../utils/auth.js');
 const { restoreUser } = require('../../utils/auth.js');
 const { requireAuth } = require('../../utils/auth.js');
-const { Checkin, User, Drink } = require('../../db/models')
+const { Checkin, User, Drink, Store } = require('../../db/models')
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const checkinRouter = require('./checkin.js')
@@ -32,7 +32,9 @@ router.get('/', asyncHandler(async (req, res) => {
 }))
 
 router.get('/drinks', asyncHandler(async (req, res) => {
-  const drinks = await Drink.findAll()
+  const drinks = await Drink.findAll({
+    include: Store
+  })
   return res.json(drinks)
 }))
 

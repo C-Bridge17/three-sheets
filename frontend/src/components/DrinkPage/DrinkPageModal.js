@@ -6,20 +6,12 @@ import UpdateCheckin from "../UpdateCheckin";
 import { delCheckin } from "../../store/splash";
 
 
-const FeedModalCard = ({ el }) => {
+const DrinkPageModal = ({ el }) => {
   const dispatch = useDispatch()
   const [currentCheckin, setCurrentCheckin] = useState()
   const sessionUser = useSelector(state => state.session.user);
   const [showModal, setShowModal] = useState(false);
-  let a = 'a'
-  const aOrAn = (el) => {
-    if (el[0].toLowerCase() === 'a' || el[0].toLowerCase() === 'e' || el[0].toLowerCase() === 'i' || el[0].toLowerCase() === 'u' || el[0].toLowerCase() === 'o') {
-      a = 'an'
-    } else {
-      a = 'a'
-    }
 
-  }
   let userCheck = true
   const checkUser = (checkinUser) => {
     if (!sessionUser) return userCheck = true
@@ -39,17 +31,9 @@ const FeedModalCard = ({ el }) => {
     setShowModal(true)
   }
 
-
-
-
-
   return (
 
-
-
-
     <div key={el.id} className="checkin-feed-div">
-      {aOrAn(el.Drink.name)}
       {checkUser(el)}
       <div className='checkin-delete-button-div'>
         <button
@@ -61,8 +45,7 @@ const FeedModalCard = ({ el }) => {
         </button>
       </div>
       <h3>
-        <NavLink to={`/users/${el.User.id}`}>{el.User.username}</NavLink> {`is drinking ${a}`} <NavLink to={`/drinks/${el.Drink.id}`}>{el.Drink.name}</NavLink> by <NavLink to={`/stores/${el.Drink.Store.id}`}>{el.Drink.Store.title}</NavLink>
-        {`in ${el.Drink.Store.location}.`}
+        <NavLink to={`/users/${el.User.id}`}>{el.User.username}</NavLink>
       </h3>
       <p className='comment-container'>{`"${el.comment}"`}</p>
       <div className='checkin-delete-button-div'>
@@ -83,4 +66,4 @@ const FeedModalCard = ({ el }) => {
 }
 
 
-export default FeedModalCard
+export default DrinkPageModal

@@ -49,9 +49,21 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 60%;
+  width: 45%;
   height: fit-content;
-  /* background-color: black; */
+  background-color: #fbfbfb;
   margin-left: 20%;
   margin-top: 100px;
+  margin-right: 5px;
+}
+
+.drink-container-splash {
+  margin-top: 100px;
+  width: 18%;
+  background-color: #fbfbfb;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: row;
 }

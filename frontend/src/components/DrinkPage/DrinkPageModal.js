@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { Modal } from '../../context/Modal';
 import UpdateCheckin from "../UpdateCheckin";
 import { delCheckin } from "../../store/splash";
+import './drinkPage.css'
 
 
 const DrinkPageModal = ({ el }) => {

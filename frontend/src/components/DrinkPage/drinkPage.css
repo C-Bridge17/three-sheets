@@ -1,0 +1,41 @@
+.drink-checkin-feed {
+  width: 100%;
+  height: 243px;
+  overflow: scroll;
+  margin-left: 25%;
+}
+
+.drink-feed-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 55%;
+  background-color: #fbfbfb;
+  margin-left: 22%;
+  margin-top: 100px;
+  margin-right: 5px;
+}
+.other-beers-list {
+  border-top: #8a4500 4px solid;
+}
+.other-beers-list > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid #fff 2px;
+  box-shadow: #fff 4px 15px 4px;
+  list-style: none;
+  margin-right: 5%;
+  padding: 5px;
+}
+.current-drink-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  text-align: center;
+  border-bottom: #8a4500 4px solid;
+}

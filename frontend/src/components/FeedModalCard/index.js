@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { Modal } from '../../context/Modal';
 import UpdateCheckin from "../UpdateCheckin";
 import { delCheckin } from "../../store/splash";
-
+// import './feedModal.css'
 
 
 const FeedModalCard = ({ el }) => {
@@ -63,8 +63,9 @@ const FeedModalCard = ({ el }) => {
       </div>
       <h3>
         <NavLink to={`/users/${el.User.id}`}>{el.User.username}</NavLink> {`is drinking ${a}`} <NavLink to={`/drinks/${el.Drink.id}`}>{el.Drink.name}</NavLink> by <NavLink to={`/stores/${el.Drink.Store.id}`}>{el.Drink.Store.title}</NavLink>
+        {` in ${el.Drink.Store.location}.`}
       </h3>
-      <p>{`at ${el.Drink.Store.location}.`}</p>
+      {/* <p>{` in ${el.Drink.Store.location}.`}</p> */}
       <p className='comment-container'>{`"${el.comment}"`}</p>
       <div className='checkin-delete-button-div'>
         <button className='checkin-update-button' value={el.id} onClick={(e) => updateCheckin(e.target.value)} hidden={userCheck}>Update Check-In</button>

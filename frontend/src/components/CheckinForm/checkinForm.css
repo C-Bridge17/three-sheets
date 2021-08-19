@@ -3,6 +3,9 @@
   height: 640px;
   width: 510px;
   border: black solid 4px;
+  position: fixed;
+  right: 15px;
+  top: 100px;
 }
 .update-checkin-header {
   text-align: center;

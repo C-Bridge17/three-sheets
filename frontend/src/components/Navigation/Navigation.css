@@ -5,8 +5,11 @@
   height: 50px;
   align-items: center;
   border: #fff solid 8px;
-  border-radius: 1em;
   margin-bottom: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
 .nav-bar > input {

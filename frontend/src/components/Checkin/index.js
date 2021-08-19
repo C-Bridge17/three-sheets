@@ -20,6 +20,8 @@ const Checkin = ({ isLoaded }) => {
   return (
     <div className='checkin-feed-container'>
 
+
+      <h2>Recent Check-In</h2>
       {
         feed && feed.map((el) => (
           <FeedModalCard el={el} />

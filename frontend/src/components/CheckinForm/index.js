@@ -28,7 +28,7 @@ const CheckInForm = ({ user }) => {
     const lowerCaseDrinkName = drinkName.toLowerCase()
     const drinkArray = drinks.filter(el => {
       return el.name.toLowerCase().includes(lowerCaseDrinkName)
-    }).slice(0, 5)
+    })
     setVisibleDrinks(drinkArray)
   }
 
@@ -54,7 +54,7 @@ const CheckInForm = ({ user }) => {
         <h2>Check-In</h2>
       </div>
       <div className='update-form-container'>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='update-form'>
           <h3>Search drinks:</h3>
           <input
             className="drink-input-update"

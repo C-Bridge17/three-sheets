@@ -1,4 +1,5 @@
 .update-checkin-modal {
+  text-align: center;
   background-color: #ffc000;
   height: 640px;
   width: 510px;
@@ -20,6 +21,7 @@
   width: 95%;
   height: 100px;
   resize: none;
+  margin-right: 20px;
 }
 .update-form-container {
   display: flex;
@@ -30,6 +32,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: flex-start;
   width: 88%;
   border: black solid 1px;
   height: 145px;
@@ -42,7 +45,7 @@
 }
 .search-update-drinks > li > button {
   background-color: lightgrey;
-  border: ;
+  border: 0.5px black solid;
 }
 .update-form {
   width: 100%;

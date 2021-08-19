@@ -29,7 +29,7 @@ const UpdateCheckin = ({ checkinId, setShowModal }) => {
     const lowerCaseDrinkName = drinkName.toLowerCase()
     const drinkArray = drinks.filter(el => {
       return el.name.toLowerCase().includes(lowerCaseDrinkName)
-    }).slice(0, 20)
+    })
     setVisibleDrinks(drinkArray)
   }
 

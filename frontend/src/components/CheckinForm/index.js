@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
 import { drinkList } from "../../store/drinks";
 import { useDebounce } from "../../hooks/useDebounce";
 import { Modal } from "../../context/Modal";

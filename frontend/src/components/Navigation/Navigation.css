@@ -62,3 +62,29 @@
 .profile-button-container {
   position: relative;
 }
+
+.search-dropdown {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: fit-content;
+  z-index: 1;
+  width: 63%;
+  top: 22px;
+  left: 19%;
+  background: lightgrey;
+}
+.drinks-dropdown {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.stores-dropdown {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}

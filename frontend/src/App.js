@@ -7,6 +7,7 @@ import Checkin from "./components/Checkin"
 import DrinkPage from "./components/DrinkPage";
 import ProfilePage from './components/ProfilePage'
 import BreweryPage from "./components/BreweryPage";
+import Error from "./components/Error";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path={`/stores/:storeId(\\d+)`}>
             <BreweryPage />
+          </Route>
+          <Route>
+            <Error embedId="5qap5aO4i9A" />
           </Route>
         </Switch>
       )

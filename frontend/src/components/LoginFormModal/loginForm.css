@@ -6,6 +6,7 @@
   padding: 10px;
   height: max-content;
   width: max-content;
+  color: #8a4500;
 }
 .login-form-div {
   height: 100%;
@@ -32,9 +33,11 @@
 
 .signup-form-div > form > label > input {
   width: 100%;
+  color: #8a4500;
 }
 .login-form-div > form > label > input {
   width: 100%;
+  color: #8a4500;
 }
 .modal-divider {
   background-color: transparent;

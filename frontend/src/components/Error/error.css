@@ -1,0 +1,21 @@
+.video-responsive {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+  top: 100px;
+  display: flex;
+}
+
+.video-responsive iframe {
+  left: 500px;
+  top: 200px;
+  height: 50%;
+  width: 50%;
+  position: absolute;
+}
+.video-responsive > h1 {
+  top: 200px;
+}

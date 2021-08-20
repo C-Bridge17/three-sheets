@@ -57,6 +57,7 @@ function Navigation({ isLoaded }) {
       id: 1,
       name: `Looks like we don't have this drink feel free to add it to the database`
     })
+    console.log(drinks.length)
     setVisibleDrinks(drinkArray.slice(0, 8))
   }
   const searchStores = (storeName) => {
@@ -92,7 +93,7 @@ function Navigation({ isLoaded }) {
 
   return (
     <nav className="nav-bar">
-      <h1 className="logo">Beer Me</h1>
+      <h1 className="logo">THREE SHEETS</h1>
       <NavLink className="home-button" exact to="/">🏠</NavLink>
       <input
         className="drink-input-update"

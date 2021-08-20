@@ -1,6 +1,6 @@
 .nav-bar {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   background-color: #fff;
   height: 50px;
   align-items: center;
@@ -11,9 +11,8 @@
   left: 0;
   width: 100%;
 }
-
 .nav-bar > input {
-  width: 65%;
+  width: 35%;
 }
 .right-side-nav {
   display: flex;
@@ -24,6 +23,7 @@
   width: 50px;
   font-size: 25px;
   align-items: center;
+  margin-left: 10px;
 }
 .profile-dropdown {
   position: absolute;
@@ -69,11 +69,12 @@
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
+  height: -moz-fit-content;
   height: fit-content;
   z-index: 1;
-  width: 63%;
+  width: 33%;
   top: 22px;
-  left: 19%;
+  left: 646px;
   background: lightgrey;
 }
 .drinks-dropdown {

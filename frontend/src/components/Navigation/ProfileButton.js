@@ -22,7 +22,6 @@ function ProfileButton({ user }) {
     if (!showMenu) return;
 
     const closeMenu = (event) => {
-      console.log(dropDownElement)
       if (!(dropDownElement.current == event.target || dropDownElement.current.contains(event.target)))
         setShowMenu(false);
     };

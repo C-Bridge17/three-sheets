@@ -12,6 +12,8 @@ router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use('/checkin', checkinRouter)
 
+
+
 router.get('/set-token-cookie', asyncHandler(async (req, res) => {
   const user = await User.findOne({
     where: {
@@ -31,12 +33,25 @@ router.get('/', asyncHandler(async (req, res) => {
   return res.json(checkin)
 }))
 
+router.get('/store', asyncHandler(async (req, res) => {
+  const store = await Store.findAll()
+  return res.json(store)
+}))
+
 router.get('/drinks', asyncHandler(async (req, res) => {
   const drinks = await Drink.findAll({
     include: Store
   })
   return res.json(drinks)
 }))
+
+router.post('/drinks', asyncHandler(async (req, res) => {
+  const drink = await Drink.create(req.body);
+  const found = await Drink.findByPk(drink.id, { include: Store })
+  return res.json(found)
+}))
+
+
 
 router.get(
   '/restore-user',

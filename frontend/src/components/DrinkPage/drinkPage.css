@@ -3,6 +3,12 @@
   height: 243px;
   overflow: scroll;
   margin-left: 25%;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.drink-checkin-feed::-webkit-scrollbar {
+  display: none;
 }
 
 .drink-feed-container {

@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { drinkList } from "../../store/drinks";
 import { useDebounce } from "../../hooks/useDebounce";
+import { Modal } from "../../context/Modal";
 import { postCheckin } from "../../store/splash";
 import './checkinForm.css'
+import AddDrinkForm from "../AddDrinkForm";
 
 const CheckInForm = ({ user }) => {
   const dispatch = useDispatch()
@@ -15,6 +17,7 @@ const CheckInForm = ({ user }) => {
   const [comment, setComment] = useState('')
   const [search, setSearch] = useState('')
   const [visibleDrinks, setVisibleDrinks] = useState([])
+  const [showModal, setShowModal] = useState(false);
   const debouncedSearch = useDebounce(search, 250)
 
 
@@ -50,6 +53,11 @@ const CheckInForm = ({ user }) => {
 
   return (
     <div className='update-checkin-modal'>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <AddDrinkForm />
+        </Modal>
+      )}
       <div className='update-checkin-header'>
         <h2>Check-In</h2>
       </div>
@@ -63,7 +71,7 @@ const CheckInForm = ({ user }) => {
           >
           </input>
           <h3>If your Drink is not in our database: </h3>
-          <button>Add Drink to our database</button>
+          <button type='button' onClick={(e) => setShowModal(true)}>Add Drink to our database</button>
           <h3>Select an avaible drink: </h3>
           <ul className='search-update-drinks'>
             {visibleDrinks && selectedDrink !== search && visibleDrinks.map(el =>

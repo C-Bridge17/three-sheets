@@ -45,3 +45,7 @@
   text-align: center;
   border-bottom: #8a4500 4px solid;
 }
+.sip-image {
+  height: 100px;
+  width: 100px;
+}

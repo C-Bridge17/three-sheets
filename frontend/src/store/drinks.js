@@ -3,9 +3,13 @@ import { csrfFetch } from './csrf';
 
 const LOAD = 'drinks/LOAD'
 const POST_DRINK = 'drinks/POST_DRINKS'
+const PUT_DRINK = "checkin/PUT_DRINK"
 
 
-
+const updateDrink = payload => ({
+  type: PUT_DRINK,
+  payload
+})
 const loadDrinks = list => ({
   type: LOAD,
   list,
@@ -14,6 +18,20 @@ const addDrinks = list => ({
   type: POST_DRINK,
   list,
 })
+
+
+
+export const putDrink = payload => async dispatch => {
+  const res = await csrfFetch(`/api/drinks/${payload.id}`, {
+    method: "PUT",
+    body: JSON.stringify(payload)
+  })
+  const updated = await res.json()
+  if (res.ok) {
+    dispatch(updateDrink(updated))
+  }
+  return updated
+}
 
 
 export const postDrink = (payload) => async dispatch => {
@@ -50,6 +68,12 @@ const drinksReducer = (state = {}, action) => {
       return {
         ...state,
         [action.list.id]: action.list,
+      };
+    }
+    case PUT_DRINK: {
+      return {
+        ...state,
+        [action.payload.id]: action.payload,
       };
     }
     default:

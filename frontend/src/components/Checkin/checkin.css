@@ -28,6 +28,12 @@ a {
   word-wrap: break-word;
   text-align: center;
   box-shadow: lightgrey 4px 4px 4px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.comment-container::-webkit-scrollbar {
+  display: none;
 }
 .checkin-delete-button {
   background-color: transparent;

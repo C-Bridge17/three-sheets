@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 const { setTokenCookie } = require('../../utils/auth.js');
 const { restoreUser } = require('../../utils/auth.js');
 const { requireAuth } = require('../../utils/auth.js');
-const { Checkin, User, Drink, Store } = require('../../db/models')
+const { Checkin, User, Drink, Store, Tag } = require('../../db/models')
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const checkinRouter = require('./checkin.js')
@@ -37,6 +37,11 @@ router.get('/store', asyncHandler(async (req, res) => {
   const store = await Store.findAll()
   return res.json(store)
 }))
+router.get('/tags', asyncHandler(async (req, res) => {
+  const tag = await Tag.findAll()
+  return res.json(tag)
+}))
+
 
 router.get('/drinks', asyncHandler(async (req, res) => {
   const drinks = await Drink.findAll({
@@ -48,6 +53,24 @@ router.get('/drinks', asyncHandler(async (req, res) => {
 router.post('/drinks', asyncHandler(async (req, res) => {
   const drink = await Drink.create(req.body);
   const found = await Drink.findByPk(drink.id, { include: Store })
+  return res.json(found)
+}))
+router.put(`/drinks/:id(\\d+)`, asyncHandler(async (req, res) => {
+  const {
+    storeId,
+    name,
+    imageUrl,
+    description,
+    tagId
+  } = req.body
+  const drink = await Drink.findByPk(req.params.id)
+  const update = await drink.update({
+    storeId,
+    name,
+    description,
+    tagId
+  })
+  const found = await Drink.findByPk(update.id, { include: [{ all: true, nested: true }] })
   return res.json(found)
 }))
 

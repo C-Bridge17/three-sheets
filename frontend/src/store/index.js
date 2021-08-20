@@ -4,12 +4,14 @@ import drinksReducer from "./drinks";
 import sessionReducer from './session';
 import homePageReducer from "./splash";
 import storeReducer from "./store";
+import tagReducer from './tags'
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   feed: homePageReducer,
   drinks: drinksReducer,
-  stores: storeReducer
+  stores: storeReducer,
+  tags: tagReducer
 });
 
 let enhancer;

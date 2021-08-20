@@ -55,7 +55,7 @@ const CheckInForm = ({ user }) => {
     <div className='update-checkin-modal'>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <AddDrinkForm />
+          <AddDrinkForm setShowModal={setShowModal} />
         </Modal>
       )}
       <div className='update-checkin-header'>

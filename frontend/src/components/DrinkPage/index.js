@@ -29,7 +29,7 @@ const DrinkPage = () => {
     <div className='drink-feed-container' >
 
       <div className='update-button-div'>
-        <button type='button' onClick={() => setShowModal(true)}>Update {`${drink[0].name}`}</button>
+        <button type='button' onClick={() => setShowModal(true)}>Update {`${drink[0]?.name}`}</button>
       </div>
       {drink?.map(el => (
         <div key={el.id} className='current-drink-div'>

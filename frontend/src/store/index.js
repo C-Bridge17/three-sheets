@@ -3,11 +3,13 @@ import thunk from "redux-thunk";
 import drinksReducer from "./drinks";
 import sessionReducer from './session';
 import homePageReducer from "./splash";
+import storeReducer from "./store";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   feed: homePageReducer,
-  drinks: drinksReducer
+  drinks: drinksReducer,
+  stores: storeReducer
 });
 
 let enhancer;

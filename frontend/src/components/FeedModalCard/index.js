@@ -62,7 +62,7 @@ const FeedModalCard = ({ el }) => {
       </div>
       <h3>
         <NavLink to={`/users/${el.User.id}`}>{el.User.username}</NavLink> {`is drinking ${a}`} <NavLink to={`/drinks/${el.Drink.id}`}>{el.Drink.name}</NavLink> by <NavLink to={`/stores/${el.Drink.Store.id}`}>{el.Drink.Store.title}</NavLink>
-        {`in ${el.Drink.Store.location}.`}
+        {` in ${el.Drink.Store.location}.`}
       </h3>
       <p className='comment-container'>{`"${el.comment}"`}</p>
       <div className='checkin-delete-button-div'>

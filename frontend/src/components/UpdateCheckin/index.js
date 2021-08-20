@@ -63,8 +63,6 @@ const UpdateCheckin = ({ checkinId, setShowModal }) => {
             onChange={(e) => (setSearch(e.target.value), setDisable(true))}
           >
           </input>
-          <h3>If your Drink is not in our database: </h3>
-          <button>Add Drink to our database</button>
           <h3>Select an avaible drink: </h3>
           <ul className='search-update-drinks'>
             {visibleDrinks && selectedDrink !== search && visibleDrinks.map(el =>

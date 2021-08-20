@@ -1,7 +1,9 @@
+import { useSelector } from "react-redux"
 import { NavLink } from "react-router-dom"
 import './drinkSplash.css'
 
 const DrinkSplash = ({ feed }) => {
+  const drinks = useSelector(state => Object.values(state.drinks))
 
 
   return (

@@ -17,7 +17,7 @@ const DrinkPage = () => {
   const drinkComments = feed.filter(el => el.drinkId === +drinkId)
   const otherDrinks = drinks.filter(el => el.storeId === drink[0].storeId && el.id !== drink[0].id)
 
-  if (!drinkComments.length) setHidden(false)
+  // if (!drinkComments.length) setHidden(false)
 
   useEffect(() => {
     dispatch(drinkList())
@@ -26,39 +26,36 @@ const DrinkPage = () => {
 
 
   return (
-    <div className='checkin-feed-container' >
-      <div>
-        {drink?.map(el => (
-          <div key={el.id}>
-            <img src={el.imageUrl} alt={el.name}></img>
-            <h2>{el.name}</h2>
-            <h4>{el.Description}</h4>
-            <h4>by <NavLink to={`/stores/${el.Store.id}`}>{el.Store.title}</NavLink> in {el.Store.location}</h4>
-          </div>
-        ))}
-      </div>
-      <div>
-        <h2>Recent Comments about {drink[0]?.name}</h2>
-        <button hidden={!hidden} onClick={(e) => e.preventDefault, <CheckInForm />}>Check-In</button>
-        <button hidden={hidden}>Be the first to Check-In</button>
+    <div className='drink-feed-container' >
+
+      {drink?.map(el => (
+        <div key={el.id} className='current-drink-div'>
+          <img src={el.imageUrl} alt={el.name}></img>
+          <h2>{el.name}</h2>
+          <h4>{el.description}</h4>
+          <h4>by <NavLink to={`/stores/${el.Store.id}`}>{el.Store.title}</NavLink> in {el.Store.location}</h4>
+        </div>
+      ))}
+      <h2>Recent Comments about {drink[0]?.name}</h2>
+      <div className='drink-checkin-feed'>
         {drinkComments && drinkComments.map(el => (
           <div>
             <DrinkPageModal el={el} />
           </div>
         ))}
       </div>
-      <div>
-        <h2>Other Drinks by <NavLink to={`/store/${drink[0]?.storeId}`}>{drink[0]?.Store.title}</NavLink></h2>
-        <ul>
-          {otherDrinks?.map(el => (
-            <li key={el.id}>
-              <img className='sip-image' src={el.imageUrl} alt={`Logo for ${el.name}`}></img>
-              <NavLink to={`/drinks/${el.drinkId}`}><h3>{el.name}</h3></NavLink>
-              <p>{el.description}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+
+      <h2>Other Drinks by <NavLink to={`/store/${drink[0]?.storeId}`}>{drink[0]?.Store.title}</NavLink></h2>
+      <ul className='other-beers-list'>
+        {otherDrinks?.map(el => (
+          <li key={el.id}>
+            <img className='sip-image' src={el.imageUrl} alt={`Logo for ${el.name}`}></img>
+            <NavLink to={`/drinks/${el.id}`}><h3>{el.name}</h3></NavLink>
+            <p>{el.description}</p>
+          </li>
+        ))}
+      </ul>
+
     </div >
   )
 }

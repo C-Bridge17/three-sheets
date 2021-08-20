@@ -28,9 +28,10 @@ const AddDrinkForm = () => {
       let payload = {
         storeId,
         name,
-        description: 'good drink'
+        imageUrl: "https://untappd.akamaized.net/site/assets/images/temp/badge-beer-default.png",
+        description: 'good drink',
+        tagId: 4
       }
-      console.log(payload)
       dispatch(postDrink(payload))
     }
   }
@@ -58,6 +59,10 @@ const AddDrinkForm = () => {
             >{el.title}</option>
           ))}
         </select>
+        <textarea>
+
+        </textarea>
+        {/* add a drop down for tags  and make the modul close */}
         <button type='submit'>Add Drink</button>
       </form>
     </div>

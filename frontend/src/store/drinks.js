@@ -16,7 +16,7 @@ const addDrinks = list => ({
 })
 
 
-export const postDrink = payload => async dispatch => {
+export const postDrink = (payload) => async dispatch => {
   const res = await csrfFetch('/api/drinks', {
     method: 'POST',
     body: JSON.stringify(payload)

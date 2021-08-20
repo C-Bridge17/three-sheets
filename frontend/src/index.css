@@ -1,3 +1,19 @@
 body {
   background-color: #ffc000;
+  font-family: sans-serif;
+}
+button {
+  background: transparent;
+  border: transparent;
+  text-align: start;
+  color: #8a4500;
+  padding: 4px;
+}
+button:hover {
+  cursor: pointer;
+}
+input {
+  background: lightgrey;
+  border: #fff solid 2px;
+  color: #fff;
 }

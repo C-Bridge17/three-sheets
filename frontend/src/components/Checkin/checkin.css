@@ -1,7 +1,7 @@
 .checkin-feed-div {
   background-color: #fff;
   width: 65%;
-  height: 215px;
+  height: fit-content;
   border-radius: 1em;
   display: flex;
   flex-direction: column;

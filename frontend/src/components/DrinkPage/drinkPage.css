@@ -1,6 +1,7 @@
 .drink-checkin-feed {
   width: 100%;
-  height: 243px;
+
+  height: 174px;
   overflow: scroll;
   margin-left: 25%;
   -ms-overflow-style: none;
@@ -48,4 +49,12 @@
 .sip-image {
   height: 100px;
   width: 100px;
+}
+.update-button-div {
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+  margin-top: 5px;
 }

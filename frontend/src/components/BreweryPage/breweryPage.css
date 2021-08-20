@@ -1,0 +1,9 @@
+.brewery-name {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+  font-size: 40px;
+  text-align: center;
+  justify-content: center;
+  align-content: flex-start;
+}

@@ -1,0 +1,25 @@
+.add-drink-container {
+  background-color: #ffc000;
+  height: 342px;
+  width: 510px;
+  top: 147px;
+  border: black solid 4px;
+  position: fixed;
+  right: 345px;
+  top: 333px;
+}
+
+.add-drink-container > * {
+  text-align: center;
+}
+.comment-textarea-add {
+  color: #8a4500;
+  width: 95%;
+  height: 100px;
+  resize: none;
+}
+
+select {
+  background: #8a4500;
+  color: #ffc000;
+}

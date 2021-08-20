@@ -28,13 +28,13 @@ const DrinkPage = () => {
   return (
     <div className='drink-feed-container' >
 
-
-      <button type='button' onClick={() => setShowModal(true)}>Update drink</button>
-
+      <div className='update-button-div'>
+        <button type='button' onClick={() => setShowModal(true)}>Update drink</button>
+      </div>
       {drink?.map(el => (
         <div key={el.id} className='current-drink-div'>
-          <img src={el.imageUrl} alt={el.name}></img>
           <h2>{el.name}</h2>
+          <img src={el.imageUrl} alt={el.name}></img>
           <h4>{el.description}</h4>
           <h4>by <NavLink to={`/stores/${el.Store.id}`}>{el.Store.title}</NavLink> in {el.Store.location}</h4>
         </div>

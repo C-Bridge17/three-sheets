@@ -40,7 +40,7 @@ const UpdateDrinkForm = ({ setShowModal, drink, drinks }) => {
   }
 
   return (
-    <div>
+    <div className="add-drink-container" >
       <form onSubmit={handleSubmit}>
         <h4>Update Drink: <NavLink to={`/drinks/${drink[0].id}`}>{`${drink[0].name}`}</NavLink> </h4>
         <h4>Select Brewery: </h4>
@@ -67,15 +67,14 @@ const UpdateDrinkForm = ({ setShowModal, drink, drinks }) => {
         </select>
         <textarea
           required
-          className="comment-textarea-update"
+          className="comment-textarea-add"
           placeholder="Description"
           maxLength='255'
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         >
         </textarea>
-        {/* add a drop down for tags  and make the modul close */}
-        <button type='submit'>Add Drink</button>
+        <button type='submit'>Update Drink</button>
       </form>
     </div>
   )

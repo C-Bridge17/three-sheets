@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { storeList } from '../../store/store'
 import { postDrink } from "../../store/drinks"
 import { tagList } from "../../store/tags"
+import './addDrinkForm.css'
 
 
 
@@ -46,7 +47,7 @@ const AddDrinkForm = ({ setShowModal }) => {
   }
 
   return (
-    <div>
+    <div className="add-drink-container">
       {errors && errors.map(el => (
         <ul key={el}>
           <li>{el}</li>
@@ -60,6 +61,7 @@ const AddDrinkForm = ({ setShowModal }) => {
         ></input> </h4>
         <h4>Select Brewery: </h4>
         <select
+          className="drop-down"
           onChange={(e) => setStoreId(e.target.value)}
         >
           {stores.map(el => (
@@ -71,6 +73,7 @@ const AddDrinkForm = ({ setShowModal }) => {
         </select>
         <h4>Select Beer Type: </h4>
         <select
+          className="drop-down"
           onChange={(e) => setTagId(e.target.value)}
         >
           {tags.map(el => (
@@ -82,7 +85,7 @@ const AddDrinkForm = ({ setShowModal }) => {
         </select>
         <textarea
           required
-          className="comment-textarea-update"
+          className="comment-textarea-add"
           placeholder="Description"
           maxLength='255'
           onChange={(e) => setDescription(e.target.value)}

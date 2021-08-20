@@ -1,0 +1,6 @@
+.profile-page-container {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

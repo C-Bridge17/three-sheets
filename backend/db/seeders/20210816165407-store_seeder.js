@@ -23,7 +23,7 @@ module.exports = {
       { location: 'Burlington, VT', title: 'Switchback Brewing Co.', createdAt: new Date(), updatedAt: new Date() },
       { location: 'Stowe, VT', title: 'The Alchemist', createdAt: new Date(), updatedAt: new Date() },
       { location: 'Stowe, VT', title: 'von Trapp Brewing', createdAt: new Date(), updatedAt: new Date() },
-      { location: 'St Johnsbury', title: 'Whirligig Brewing', createdAt: new Date(), updatedAt: new Date() }
+      { location: 'Anywhere', title: 'Other Breweries', createdAt: new Date(), updatedAt: new Date() }
     ], {});
   },
 

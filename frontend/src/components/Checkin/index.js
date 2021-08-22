@@ -9,7 +9,7 @@ import './checkin.css'
 
 const Checkin = ({ isLoaded }) => {
   const dispatch = useDispatch()
-  const feed = useSelector(state => Object.values(state.feed).sort(state.feed.updatedAt).reverse().slice(0, 25))
+  const feed = useSelector(state => Object.values(state.feed).sort(state.feed.updatedAt).reverse().slice(0, 17))
 
   useEffect(() => {
     dispatch(getHomepage())

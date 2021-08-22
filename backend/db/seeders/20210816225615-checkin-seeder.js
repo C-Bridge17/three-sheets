@@ -19,7 +19,7 @@ module.exports = {
       { userId: 2, drinkId: 14, comment: 'Only reason to come to Vermont in the summer', createdAt: new Date(), updatedAt: new Date() },
       { userId: 3, drinkId: 15, comment: 'Ripped some gnar pow and cracked this cold one after', createdAt: new Date(), updatedAt: new Date() },
       { userId: 4, drinkId: 16, comment: 'I\'m here so i dont get fined', createdAt: new Date(), updatedAt: new Date() },
-      { userId: 5, drinkId: 17, comment: 'Practice watchu talking about pratice', createdAt: new Date(), updatedAt: new Date() }
+      { userId: 5, drinkId: 17, comment: 'Practice watchu talking about practice', createdAt: new Date(), updatedAt: new Date() }
     ], {});
   },
 

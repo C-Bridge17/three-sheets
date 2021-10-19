@@ -40,7 +40,6 @@ const AddDrinkForm = ({ setShowModal }) => {
         description,
         tagId
       }
-      console.log(payload)
       setShowModal(false)
       dispatch(postDrink(payload))
     }

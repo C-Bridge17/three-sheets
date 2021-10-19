@@ -7,6 +7,8 @@ import ProfileCheckin from "./ProfileCheckin";
 const ProfilePage = () => {
   const { userId } = useParams()
   const dispatch = useDispatch()
+  const user = useSelector(state => Object.values(state.user)).filter(el => +userId === el.id)
+
   const feed = useSelector(state => Object.values(state.feed).sort(state.feed.updatedAt).reverse())
   const filtered = feed.filter(el => el.userId === +userId)
 
@@ -19,7 +21,7 @@ const ProfilePage = () => {
   return (
     <div className='page-container'>
       <div className='checkin-feed-container'>
-        <h1>{filtered[0]?.User.username}'s Tap Room</h1>
+        <h1>{user?.username}'s Tap Room</h1>
 
         <h2>Recent check-ins</h2>
 

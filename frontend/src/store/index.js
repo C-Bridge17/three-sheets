@@ -5,13 +5,15 @@ import sessionReducer from './session';
 import homePageReducer from "./splash";
 import storeReducer from "./store";
 import tagReducer from './tags'
+import userReducer from './user'
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   feed: homePageReducer,
   drinks: drinksReducer,
   stores: storeReducer,
-  tags: tagReducer
+  tags: tagReducer,
+  user: userReducer
 });
 
 let enhancer;

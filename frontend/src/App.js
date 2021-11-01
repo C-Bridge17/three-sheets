@@ -8,6 +8,7 @@ import DrinkPage from "./components/DrinkPage";
 import ProfilePage from './components/ProfilePage'
 import BreweryPage from "./components/BreweryPage";
 import Error from "./components/Error";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ function App() {
   return (
     <>
       <Navigation isLoaded={isLoaded} />
+      <ScrollToTop />
       {isLoaded && (
         <Switch>
           <Route exact path="/">

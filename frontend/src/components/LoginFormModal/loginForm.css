@@ -19,6 +19,9 @@
   border: solid lightgray 4px;
   box-shadow: lightgray 2px 0px 8px;
 }
+button {
+  margin-top: 5px;
+}
 
 .signup-form-div > * {
   display: flex;

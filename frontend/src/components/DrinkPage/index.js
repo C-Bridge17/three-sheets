@@ -49,7 +49,7 @@ const DrinkPage = () => {
         ))}
       </div>
 
-      <h2>Other Drinks by <NavLink to={`/store/${drink[0]?.storeId}`}>{drink[0]?.Store.title}</NavLink></h2>
+      <h2>Other Drinks by <NavLink to={`/stores/${drink[0]?.storeId}`}>{drink[0]?.Store.title}</NavLink></h2>
       <ul className='other-beers-list'>
         {otherDrinks?.map(el => (
           <li key={el.id}>

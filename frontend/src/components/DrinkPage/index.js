@@ -8,6 +8,8 @@ import DrinkPageModal from "./DrinkPageModal";
 import { Modal } from "../../context/Modal";
 import UpdateDrinkForm from "../UpdateDrinkForm";
 
+// fix
+
 const DrinkPage = () => {
   const { drinkId } = useParams()
   const dispatch = useDispatch()
